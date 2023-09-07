@@ -1,0 +1,14 @@
+
+.about .left{
+    text-align: center;
+}
+
+.con-btn{
+    margin: 2rem;
+    text-align: center;
+    justify-content: left; 
+}
+
+.left p{
+    margin-bottom: 1rem;
+}

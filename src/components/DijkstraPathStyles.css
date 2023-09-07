@@ -1,0 +1,11 @@
+.grid{
+    margin-top: 1rem;
+    display: grid;
+    justify-content: center;
+}
+
+.visualize{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
