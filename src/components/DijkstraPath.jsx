@@ -21,7 +21,6 @@ const DijkstraPath = props => {
           return (
             <div key={rowIdx}>
               {row.map((node, nodeIdx) => {
-                console.log(node)
                 const { row, col, isFinish, isStart, isWall } = node
                 return (
                   <Cell

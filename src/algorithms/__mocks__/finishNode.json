@@ -1,0 +1,10 @@
+{
+  "col": 40,
+  "row": 10,
+  "isStart": false,
+  "isFinish": true,
+  "distance": null,
+  "isVisited": false,
+  "isWall": false,
+  "previousNode": null
+}

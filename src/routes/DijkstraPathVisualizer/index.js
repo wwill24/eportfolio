@@ -2,11 +2,12 @@ import React from 'react'
 
 import DijkstraPath from '../../components/DijkstraPath'
 import DijkstraNavBar from '../../components/DijkstraNavBar'
-import { dijkstra, getNodesInShortestPathOrder } from '../../algorithms/Dijkstra'
+import { dijkstra, getNodesInShortestPathOrder } from '../../algorithms'
 // methods
 import componentDidMount from './methods/componentDidMount'
 import handleMouseDown from './methods/handleMouseDown'
 import handleMouseEnter from './methods/handleMouseEnter'
+import animateDijkstra from './methods/animateDijkstra'
 
 const START_NODE_ROW = 10
 const START_NODE_COL = 10
@@ -31,26 +32,11 @@ class DijkstraPathVisualizer extends React.Component {
     this.componentDidMount = componentDidMount.bind(this)
     this.handleMouseDown = handleMouseDown.bind(this)
     this.handleMouseEnter = handleMouseEnter.bind(this)
+    this.animateDijkstra = animateDijkstra.bind(this)
   }
 
   handleMouseUp () {
     this.setState({ mouseIsPressed: false })
-  }
-
-  animateDijkstra (visitedNodesInOrder, nodesInShortestPathOrder) {
-    for (let i = 0; i <= this.visitedNodesInOrder.length; i++) {
-      if (i === this.visitedNodesInOrder.length) {
-        setTimeout(() => {
-          this.animateShortestPath(nodesInShortestPathOrder)
-        }, 10 * i)
-        return
-      }
-      setTimeout(() => {
-        const node = visitedNodesInOrder[i]
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          'node node-visited'
-      }, 10 * i)
-    }
   }
 
   animateShortestPath (nodesInShortestPathOrder) {
