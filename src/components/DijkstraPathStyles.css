@@ -4,8 +4,12 @@
     justify-content: center;
 }
 
-.visualize{
+.vis-btn{
     margin-top: 1rem;
     display: flex;
     justify-content: center;
+}
+
+.legend-and-instruction{
+    display: block;
 }
