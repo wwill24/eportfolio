@@ -3,38 +3,43 @@ import PropTypes from 'prop-types'
 import './DijkstraNavBar.css'
 
 const DijkstraNavBar = props => {
-  const { clearBoard, clearPath, clearWalls } = props
+  const {
+    onClearBoard,
+    onClearPath,
+    onClearWalls
+  } = props
+
   return (
     <div className='path-navbar'>
       <h1>Dijkstra</h1>
       <div className='btns'>
-          <button
-            className='clearBoard'
-            onClick={() => clearBoard()}
-          >
-            Clear Board
-          </button>
-          <button
-            className='clearWalls'
-            onClick={() => clearWalls()}
-          >
-              Clear Walls
-          </button>
-          <button
-            className='clearPath'
-            onClick={() => clearPath()}
-          >
-              Clear Path
-          </button>
+        <button
+          className='clearBoard'
+          onClick={() => onClearBoard()}
+        >
+          Clear Board
+        </button>
+        <button
+          className='clearWalls'
+          onClick={() => onClearWalls()}
+        >
+            Clear Walls
+        </button>
+        <button
+          className='clearPath'
+          onClick={() => onClearPath()}
+        >
+            Clear Path
+        </button>
       </div>
     </div>
   )
 }
 
 DijkstraNavBar.propTypes = {
-  clearBoard: PropTypes.func.isRequired,
-  clearPath: PropTypes.func.isRequired,
-  clearWalls: PropTypes.func.isRequired
+  onClearBoard: PropTypes.func.isRequired,
+  onClearPath: PropTypes.func.isRequired,
+  onClearWalls: PropTypes.func.isRequired
 }
 
 export default DijkstraNavBar

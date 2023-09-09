@@ -5,7 +5,6 @@ import Cell from './Grid/Cell'
 import './DijkstraPathStyles.css'
 
 const DijkstraPath = props => {
-  console.log(props)
   const {
     grid,
     mouseIsPressed,
@@ -22,6 +21,7 @@ const DijkstraPath = props => {
           return (
             <div key={rowIdx}>
               {row.map((node, nodeIdx) => {
+                console.log(node)
                 const { row, col, isFinish, isStart, isWall } = node
                 return (
                   <Cell
@@ -31,12 +31,15 @@ const DijkstraPath = props => {
                     isStart={isStart}
                     isWall={isWall}
                     mouseIsPressed={mouseIsPressed}
-                    onMouseDown={(row, col) => handleMouseDown(row, col)}
-                    onMouseEnter={(row, col) =>
+                    onMouseDown={(row, col) => {
+                      handleMouseDown(row, col)
+                    }}
+                    onMouseEnter={(row, col) => {
                       handleMouseEnter(row, col)
-                    }
+                    }}
                     onMouseUp={() => handleMouseUp()}
-                    row={row}></Cell>
+                    row={row}
+                  />
                 )
               })}
             </div>

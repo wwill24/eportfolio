@@ -1,8 +1,12 @@
 import React from 'react'
 
-import DijkstraPath from '../components/DijkstraPath'
-import DijkstraNavBar from '../components/DijkstraNavBar'
-import { dijkstra, getNodesInShortestPathOrder } from '../algorithms/Dijkstra'
+import DijkstraPath from '../../components/DijkstraPath'
+import DijkstraNavBar from '../../components/DijkstraNavBar'
+import { dijkstra, getNodesInShortestPathOrder } from '../../algorithms/Dijkstra'
+// methods
+import componentDidMount from './methods/componentDidMount'
+import handleMouseDown from './methods/handleMouseDown'
+import handleMouseEnter from './methods/handleMouseEnter'
 
 const START_NODE_ROW = 10
 const START_NODE_COL = 10
@@ -24,22 +28,9 @@ class DijkstraPathVisualizer extends React.Component {
       grid: [],
       mouseIsPressed: false
     }
-  }
-
-  componentDidMount () {
-    const grid = this.getInitialGrid()
-    this.setState({ grid })
-  }
-
-  handleMouseDown (row, col) {
-    const newGrid = this.getNewGridWithToggledWall(this.state.grid, row, col)
-    this.setState({ grid: newGrid, mouseIsPressed: true })
-  }
-
-  handleMouseEnter (row, col) {
-    if (!this.state.mouseIsPressed) return
-    const newGrid = this.getNewGridWithToggledWall(this.state.grid, row, col)
-    this.setState({ grid: newGrid })
+    this.componentDidMount = componentDidMount.bind(this)
+    this.handleMouseDown = handleMouseDown.bind(this)
+    this.handleMouseEnter = handleMouseEnter.bind(this)
   }
 
   handleMouseUp () {
@@ -118,7 +109,7 @@ class DijkstraPathVisualizer extends React.Component {
     return newGrid
   }
 
-  clearBoard = () => {
+  clearBoard () {
     const grid = this.getInitialGrid()
     this.setState({ grid })
   }
@@ -143,8 +134,8 @@ class DijkstraPathVisualizer extends React.Component {
         <DijkstraPath
           grid={grid}
           mouseIsPressed={mouseIsPressed}
-          handleMouseDown={() => this.handleMouseDown()}
-          handleMouseEnter={() => this.handleMouseEnter()}
+          handleMouseDown={(row, col) => this.handleMouseDown(row, col)}
+          handleMouseEnter={(row, col) => this.handleMouseEnter(row, col)}
           handleMouseUp={() => this.handleMouseUp()}
           visualizeDijkstra={() => this.visualizeDijkstra()}
         />
