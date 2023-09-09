@@ -4,7 +4,6 @@ module.exports = {
     es2021: true
   },
   extends: [
-    'standard',
     'plugin:react/recommended',
     'plugin:testing-library/react',
     'plugin:jest-dom/recommended'
