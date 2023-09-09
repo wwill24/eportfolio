@@ -5,12 +5,9 @@ import Footer from '../components/Footer'
 import HeroImg2 from '../components/HeroImg2'
 import AboutContent from '../components/AboutContent'
 
-
-
-
 const About = () => {
   return (
-    <div>      
+    <div>
       <Navbar />
       <HeroImg2 heading = "ABOUT" text = "Software Engineer"/>
       <AboutContent/>
