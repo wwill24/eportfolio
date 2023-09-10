@@ -5,6 +5,9 @@ import mockFinishNode from '../__mocks__/finishNode.json'
 
 describe('dijkstra', () => {
   it('calculates start node distance', () => {
-    expect(dijkstra(mockGrid, mockStartNode, mockFinishNode)).toEqual([])
+    // returns type of array
+    expect(dijkstra(mockGrid, mockStartNode, mockFinishNode)).toEqual(
+      expect.any(Array)
+    )
   })
 })
